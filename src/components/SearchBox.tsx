@@ -1,5 +1,7 @@
 // components/SearchBox.tsx
-import { useState } from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import { Search, Loader2, X } from 'lucide-react'
 
 interface SearchBoxProps {
@@ -12,7 +14,7 @@ interface SearchBoxProps {
 export function SearchBox({ onSearch, isLoading, error, onClearError }: SearchBoxProps) {
   const [query, setQuery] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (query.trim() && !isLoading) {
       onSearch(query)
@@ -46,7 +48,6 @@ export function SearchBox({ onSearch, isLoading, error, onClearError }: SearchBo
           </button>
         </div>
         
-        {/* Error Message */}
         {error && (
           <div className="mt-2 flex items-center justify-between bg-red-50 border border-red-200 rounded-lg px-4 py-3">
             <div className="flex items-center space-x-2">

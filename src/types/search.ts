@@ -48,3 +48,8 @@ export interface SearchState {
   labSources: Array<{ id: number; text: string; checked: boolean }>;
   useChunk: boolean;
 }
+
+export interface AggregationBucket {
+  key: string;
+  doc_count: number;
+}
